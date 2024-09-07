@@ -1,4 +1,4 @@
-package org.example.springmodulithhandson.notification
+package org.example.springmodulithhandson.notification.internal
 
 import java.time.LocalDateTime
 

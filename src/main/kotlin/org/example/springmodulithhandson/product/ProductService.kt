@@ -1,8 +1,8 @@
 package org.example.springmodulithhandson.product
 
-import org.example.springmodulithhandson.notification.Notification
+import org.example.springmodulithhandson.notification.NotificationRequest
 import org.example.springmodulithhandson.notification.NotificationService
-import org.example.springmodulithhandson.notification.NotificationType
+import org.example.springmodulithhandson.product.intenral.Product
 import org.springframework.stereotype.Service
 import java.time.LocalDateTime
 
@@ -11,12 +11,12 @@ class ProductService(
     private val notificationService: NotificationService,
 ) {
     fun create(product: Product) {
-        Notification(
-            productName = product.name,
-            date = LocalDateTime.now(),
-            format = NotificationType.EMAIL,
-        ).run {
-            notificationService.createNotification(this)
-        }
+        notificationService.createNotification(
+            NotificationRequest(
+                productName = product.name,
+                date = LocalDateTime.now(),
+                format = "SMS",
+            ),
+        )
     }
 }

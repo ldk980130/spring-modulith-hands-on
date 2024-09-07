@@ -7,6 +7,14 @@ class ModulithTest {
     @Test
     fun `createApplicationModuleModel()`() {
         val modules = ApplicationModules.of(SpringModulithHandsOnApplication::class.java)
+
         modules.forEach { println(it) }
+    }
+
+    @Test
+    fun `verifiesModularStructure()`() {
+        val modules = ApplicationModules.of(SpringModulithHandsOnApplication::class.java)
+
+        modules.verify()
     }
 }
