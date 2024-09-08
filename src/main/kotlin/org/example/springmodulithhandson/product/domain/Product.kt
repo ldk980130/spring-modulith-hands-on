@@ -1,4 +1,4 @@
-package org.example.springmodulithhandson.product.intenral
+package org.example.springmodulithhandson.product.domain
 
 class Product(
     val name: String,

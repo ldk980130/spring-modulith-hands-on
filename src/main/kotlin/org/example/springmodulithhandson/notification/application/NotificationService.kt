@@ -1,17 +1,19 @@
-package org.example.springmodulithhandson.notification
+package org.example.springmodulithhandson.notification.application
 
 import io.github.oshai.kotlinlogging.KotlinLogging
-import org.example.springmodulithhandson.notification.internal.Notification
-import org.example.springmodulithhandson.notification.internal.NotificationType
+import org.example.springmodulithhandson.notification.CreateNotification
+import org.example.springmodulithhandson.notification.NotificationRequest
+import org.example.springmodulithhandson.notification.domain.Notification
+import org.example.springmodulithhandson.notification.domain.NotificationType
 import org.springframework.modulith.events.ApplicationModuleListener
 import org.springframework.stereotype.Service
 
 @Service
-class NotificationService {
+class NotificationService : CreateNotification {
     private val logger = KotlinLogging.logger { }
 
     @ApplicationModuleListener
-    fun createNotification(request: NotificationRequest) {
+    override fun create(request: NotificationRequest) {
         val notification =
             Notification(
                 productName = request.productName,
