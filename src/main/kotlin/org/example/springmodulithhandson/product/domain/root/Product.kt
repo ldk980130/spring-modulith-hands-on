@@ -1,16 +1,22 @@
 package org.example.springmodulithhandson.product.domain.root
 
 import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
+import org.example.springmodulithhandson.common.BaseAggregateRoot
+import org.example.springmodulithhandson.product.ProductCreatedEvent
 
 @Entity
 class Product(
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
     val name: String,
     val description: String,
     val price: Int,
-)
+) : BaseAggregateRoot<Product>() {
+    companion object {
+        fun create(
+            name: String,
+            description: String,
+            price: Int,
+        ): Product =
+            Product(name, description, price)
+                .apply { registerEvent(ProductCreatedEvent(this)) }
+    }
+}
