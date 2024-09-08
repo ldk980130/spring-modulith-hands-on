@@ -3,8 +3,8 @@ package org.example.springmodulithhandson.notification.application
 import io.github.oshai.kotlinlogging.KotlinLogging
 import org.example.springmodulithhandson.notification.CreateNotification
 import org.example.springmodulithhandson.notification.NotificationRequest
-import org.example.springmodulithhandson.notification.domain.Notification
 import org.example.springmodulithhandson.notification.domain.NotificationType
+import org.example.springmodulithhandson.notification.domain.root.Notification
 import org.example.springmodulithhandson.product.ProductCreatedEvent
 import org.springframework.modulith.events.ApplicationModuleListener
 import org.springframework.stereotype.Service

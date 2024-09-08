@@ -1,5 +1,6 @@
-package org.example.springmodulithhandson.notification.domain
+package org.example.springmodulithhandson.notification.domain.root
 
+import org.example.springmodulithhandson.notification.domain.NotificationType
 import java.time.LocalDateTime
 
 class Notification(
